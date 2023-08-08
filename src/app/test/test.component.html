@@ -1,0 +1,68 @@
+<div>
+    <h1>Welcome {{name}}</h1>
+    <h1>{{"Welcome " + name}}</h1>
+    <h2 class="text-success">{{name.length}}</h2>
+    <h2 bind-class="successClass">{{name.toUpperCase()}}</h2>
+    <h2 bind-class.text-danger="hasError">{{"Method-->>>" + greetUser()}}</h2>
+    <h2 [class.text-danger] = "hasError" >{{"URL-->" + url}}</h2>
+    <h1 [ngClass]="manageClasses">Manage Mutiple Classes</h1>
+    <input type="text" id={{id}} value="Using curly braces (interpolation)"/>  
+    <input type="text" [id]="id" value="Using square braces" [disabled]="isDisabled"/>
+    <input type="text" [id]="id" value="Using square braces" bind-disabled="isDisabled"/>
+    <h1 [style.color]="hasError ? 'orange' : 'green'">Style Binding</h1>
+    <p [ngStyle] = "styleClasses">Style Binding 2</p>
+    <button (click)="onClick($event)" >Greet</button>
+    <h3>{{greet}}</h3>
+    <button (click)="greet='Welcome Syed'" >Greet</button><br/>
+    <input #user type="text" placeholder="Username" />
+    <button (click)="showUserName(user.value)">Submit</button>
+    <br><br>
+    Username : <input type="text" [(ngModel)]="userName" />
+    {{userName}}
+    <h1>Structural Directives</h1>
+    <!-- <p *ngIf="displayName; else elseBlock">Strunctural-1</p>
+    <ng-template #elseBlock>
+        <p>Strunctural-2 Hidden</p>
+    </ng-template> -->
+    <ng-template #thenBlock>
+        <p>Name</p>
+    </ng-template>
+    <ng-template #elseBlock>
+        <p>Name Hidden</p>
+    </ng-template>
+    <p *ngIf="displayName; then thenBlock else elseBlock">Strunctural-1</p>
+    <h1>Switch Case</h1>
+    <div [ngSwitch]="color">
+        <span *ngSwitchCase="'red'">Red</span>
+        <span *ngSwitchCase="'green'">Green</span>
+        <span *ngSwitchDefault>Default</span>
+    </div>
+    <h1>For Loop</h1>
+    <div *ngFor="let color of colors;index as i;first as f;last as l;odd as o;even as e">
+        <h3 [ngStyle]="{'color': color,'fontStyle':'italic'}">Index-->{{i}}<br> First--> {{f}} Last--> {{l}} Odd-->{{o}} Even-->{{e}}<br> {{color}}</h3>
+    </div>
+    <h1>Pipes</h1>
+    <h3>{{ name | lowercase }}</h3>
+    <h3>{{ name | uppercase }}</h3>
+    <h3>{{ message | titlecase }}</h3>
+    <h3>{{ message | slice:0:7 }}</h3>
+    <h3>Json Pipes For String</h3>
+    <h3>{{ person | json }}</h3>
+    <h3>Pipe for Number</h3>
+    <h4>{{5.678 | number : '1.2-3'}}</h4>
+    <h4>{{5.678 | number : '3.4-5'}}</h4>
+    <h4>{{5.678 | number : '3.1-2'}}</h4>
+    Percent Pipe<h4>{{0.5 | percent}}</h4>
+    Currency Pipe Default<h4>{{50 | currency}}</h4>
+    Currency Pipe<h4>{{50 | currency:'INR'}}</h4>
+    Currency Pipe<h4>{{50 | currency:'INR':'code'}}</h4>
+    <h3>Date Pipes</h3>
+    Full Date--><h3>{{date}}</h3>
+    Short--><h3>{{date | date : 'short'}}</h3>
+    Short Date--><h3>{{date | date : 'shortDate'}}</h3>
+    Short Time--><h3>{{date | date : 'shortTime'}}</h3>
+    <h1>Component Interaction</h1>
+    <h2>Parent Data : {{parentData}}</h2>
+    <!-- Parent Data : {{parentName}} -->
+    <button (click)="sendData()">Send Data To Parent Compoment</button>
+</div>

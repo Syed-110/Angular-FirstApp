@@ -1,0 +1,15 @@
+<div>
+    <h1>Selected Id : {{employeeId}}</h1>
+    <p>
+        <button (click)="showOverview()" >Overview</button>
+        <button (click)="showContact()" >Contact</button>
+    </p>
+    <router-outlet></router-outlet>
+    <div>
+        <p>
+            <button (click)="handlePrevious()">Prevoius</button>
+            <button (click)="handleNext()">Next</button>
+            <button (click)="handleBack()">Back</button>
+        </p>
+    </div>
+</div>

@@ -1,0 +1,11 @@
+<div>
+    <h2>Employee List</h2>
+    <table border="1px">
+        <tr>
+            <th>First Name</th>
+        </tr>
+        <tr (click)="onSelect(employee)" [ngStyle]="isSelected(employee) ? {'color': 'green'} : null" *ngFor="let employee of employees">
+            <td>{{employee.firstName}}</td>
+        </tr>
+    </table>
+</div>

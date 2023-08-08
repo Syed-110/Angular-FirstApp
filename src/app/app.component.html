@@ -1,0 +1,16 @@
+<div>
+  <app-test (childEvent)="message=$event" [parentData]="name"></app-test>
+  <div>
+    <h1>From Chid Component---> {{message}}</h1>
+  </div>
+  <!-- <div class="app-test"></div> -->
+  <!-- <div app-test></div> -->
+  <!-- <app-employee-details></app-employee-details><br>
+  <app-employee-list></app-employee-list> -->
+  <nav>
+    <h1>Service</h1>
+    <a routerLink="/emp-list" routerLinkActive="active">Employee List</a><br/>
+    <a routerLink="/empdetails" routerLinkActive="active">Employee Details</a>
+  </nav>
+</div> 
+<router-outlet></router-outlet>
